@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>To Do List</title>
+  </head>
+  <body>
+    <link href="bigproject_todo.css"rel="stylesheet"type="text/css">
+    <div class="task-todo">
+      <div class="toDolist">
+        <h1 class="toDo-title"> To Do's</h1>
+        <div class="badge">1</div>
+        <div class="content-box">
+          <div tabindex="0" class="content-box1">Active</div>
+          <div tabindex="0" class="content-box1">Scheculed</div>
+          <div tabindex="0" class="content-box1">Complete</div>
+        </div>
+      </div>
+      <div class="tasks-list">
+        <textarea rows="1" placeholder="Add Something To Do (Type & Press Enter)" class="add-do" style="color:white;font-size:17px;"></textarea>
+        <div class="sortable-tasks">
+          <div class="add-assignment" draggable="false">
+            <div class="add_a_transition">
+              <div class="things_in_add-a">
+                <div class="top-border">
+                </div>
+                <div class="task-content">
+                  <div tabindex="0" class="add_assign_index">
+                    <h3 class="indexFor_add-assign2">
+                      <p>Check Me Off!</p>
+                      </h3>
+                  <div class="indexStyle_for_add-assign1">
+                    <h2 class="indexFor_add-assign1">
+                      <p>Assignment you ready to do</p>
+                    </h2>
+                      <div role="bottom" tabindex="0" aria-pressed="false" class="edit-assign">
+                        <div class="dropdownToggle">
+                          <div class="dropDown_icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 16">
+                              <path fill-rule="evenodd" d="d="M2 4a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4z">
+                              </path>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="task-modal_outer" style="position:absolute; z-index:1040;">
+      <div id="pop_input" role="dialog" aria-describedby="task-modal_outer" class="modal_show" aria-modal="true" style="display:block;">
+        <div class="modal_box">
+          <span tabindex="0"></span>
+          <!--whole box--->
+          <div id="task-modal_box" tabindex="-1" class="modal-content">
+            <!--input box--->
+            <header id="task-modal_header" class="modal-header">
+              <div class="typesetting">
+                <!--Edit To Do & Save and Cancel box typesetting-->
+                <div class="typesetting_Edit_SC">
+                <h4 class="typesetting_title">Edit To Do</h4>
+                <!--Save & Cancel box--->
+                <div class="SCbox_Typesetting">
+                  <button type="button" class="cancel_button">Cancel</button>
+                  <button type="button" class="save_button_typesetting">
+                    <div class="save_button">Save</div>
+                  </button>
+                </div>
+              </div>
+              <!--title for the assignment input box-->
+              <div class="title_inputBox">
+                <div class="tI_typesetting">
+                  <label class="title_of_titleBox">Title*</label>
+                </div>
+                <!--input box for title-->
+                <input type="text" required="required" spellcheck="true" placeholder="Please add a title" class="typesettingOf_titleInput">
+              </div>
+              <!--Notes part-->
+              <div class="typeSetting_noteList">
+                <label class="typesettingOf_Notes_title">
+                  <span class="notes">Notes</span>
+                </label>
+                <textarea placeholder="Add notes" class="typesetting_inputNotesBox"></textarea>
+              </div>
+              </header>
+              <div id="white_body" class="modal_whiteBody">
+                <div class="white_list">
+                  <form>
+                    <div class="checkList_option">
+                      <div class="checkList-component">
+                      <div class="typesetting_Checklist">
+                        <!--CheckList label-->
+                        <label class="typeS_CL"> Checklist</label>
+                      </div>
+                      </div></div>
+                    <div class="checkList_box">
+                      <input type="text" placeholer="Add a new Checklist item" class="types_checkL_input">
+                    </div>
+                  </div>
+                </div>
+                <div class="formatTit_Difficulty">
+                  <div class="difficulty_lable">
+                    <label class="difficulty">Difficulty</label>
+                  </div>
+                  <div>
+                    <form style="margin-top:1em;"
+                    <div id="radioset">
+                      <input type="radio" id= "radio_1" name="radio" class="radio_1">
+                      <label for="radio_1" class="format_R1">
+                        <span class="checkbox"></span>Easy
+                      </label>
+                      <input type="radio" id= "radio_2" name="radio" class="radio_2">
+                      <label for="radio_2" class="format_R2">
+                        <span class="checkbox"></span>
+                        Medium
+                      </label>
+                      <input type="radio" id= "radio_3" name="radio" class="radio_3">
+                      <label for="radio_3" class="format_R3">
+                        <span class="checkbox"></span>
+                        Hard
+                      </label>
+
+                </html>
+                </body>

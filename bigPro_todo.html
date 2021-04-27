@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>To Do List</title>
+    <script>
+    function validateForm() {
+    var x = document.forms["toDo"]["todo"].value;
+    if (x == null || x == "") {
+        alert("Please enter/select some");
+        return false;
+    }
+}
+  </script>
+  </head>
+  <body>
+    <link href="bigproject_todo.css"rel="stylesheet"type="text/css">
+    <ul>
+      <li><a class="active" href="#home">home</a></li>
+      <li><a href="#habittracker">habit tracker</a></li>
+      <li><a href="bigPro_todo.html">to-do list</a></li>
+      <li><a href="#rewards">rewards</a></li>
+    </ul>
+    <div id="task-modal_outer" style="position:absolute; z-index:1040;">
+      <div id="pop_input" role="dialog" aria-describedby="task-modal_outer" class="modal_show" aria-modal="true" style="display:block;">
+        <div class="modal_box">
+          <span tabindex="0"></span>
+          <!--whole box--->
+          <div id="task-modal_box" tabindex="-1" class="modal-content">
+            <!--input box--->
+            <header id="task-modal_header" class="modal-header">
+              <div class="typesetting">
+                <!--Edit To Do & Save and Cancel box typesetting-->
+                <div class="typesetting_Edit_SC">
+                <h4 class="typesetting_title">Edit To Do</h4>
+                <!--Save & Cancel box--->
+              </div>
+              <!--title for the assignment input box-->
+              <div class="title_inputBox">
+                <div class="tI_typesetting">
+                  <label class="title_of_titleBox">Title*</label>
+                </div>
+                <!--input box for title-->
+                <input type="text" required="required" spellcheck="true" placeholder="Please add a title" class="typesettingOf_titleInput">
+              </div>
+              <!--Notes part-->
+              <div class="typeSetting_noteList">
+                <label class="typesettingOf_Notes_title">
+                  <span class="notes">Notes</span>
+                </label>
+                <textarea placeholder="Add notes" class="typesetting_inputNotesBox"></textarea>
+              </div>
+              </header>
+              <div id="white_body" class="modal_whiteBody">
+                <div class="white_list">
+                  <!--Form to Submit-->
+                  <form action="save_bigP.php" name="toDo" onsubmit="return validateForm()" method="post">
+                    <div class="checkList_option">
+                      <div class="checkList-component">
+                      <div class="typesetting_Checklist">
+                        <!--CheckList label-->
+                        <label class="typeS_CL"> Checklist</label>
+                      </div>
+                      </div></div>
+                    <div class="checkList_box">
+                      <input type="text" placeholer="Add a new Checklist item" class="types_checkL_input" name="todo">
+                    </div>
+                  </div>
+
+                <div class="formatTit_Difficulty">
+                  <div class="difficulty_lable">
+                    <label class="difficulty">Difficulty</label>
+                  </div>
+                  <div>
+                    <form style="margin-top:1em;">
+                    <div id="radioset">
+                      <input type="radio" id= "radio_1" name="radio" class="radio_1" name="todo">
+                      <label for="radio_1" class="format_R1">
+                        <span class="checkbox"></span>Easy
+                      </label>
+                      <input type="radio" id= "radio_2" name="radio" class="radio_2" name="todo">
+                      <label for="radio_2" class="format_R2">
+                        <span class="checkbox"></span>
+                        Medium
+                      </label>
+                      <input type="radio" id= "radio_3" name="radio" class="radio_3" name="todo">
+                      <label for="radio_3" class="format_R3">
+                        <span class="checkbox"></span>
+                        Hard
+                      </label>
+                      </div>
+                      <div class="SCbox_Typesetting">
+                        <button type="submit" class="cancel_button">Cancel</button>
+                        <button type="submit" class="save_button_typesetting">
+                          <div class="save_button">Save</div>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+
+                </html>
+                </body>
