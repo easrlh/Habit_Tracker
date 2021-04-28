@@ -195,6 +195,9 @@ input {
 </ul>
   
 <br>
+<button type="button" name="button" onclick="updateCoins()">I Finished a To-Do List Task!</button>
+  
+<br>
 <div>
   <p>Coin Count: </p>
   <section id="demo"></div>
@@ -226,7 +229,7 @@ input {
   list.addEventListener('click', function(ev) {
     if (ev.target.tagName === 'li') {
       ev.target.classList.toggle('checked');
-      updateCoins();
+      //updateCoins();
     }
   }, false);
 
