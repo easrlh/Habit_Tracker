@@ -266,7 +266,7 @@ var coins;
 // Reference 1 - https://api.jquery.com/jQuery.getJSON/
 // Reference 2 - http://web.simmons.edu/~menzin/CS321/Unit_5_jQuery_and_Ajax/About_jQuery/Chapter07/getJsonDemo.html
 function getCoins() {
-  $.getJSON("coins.json", function(ourJSON) {
+  $.getJSON("../coins.json", function(ourJSON) {
     $.each(ourJSON, function( key, val ) {
       coins = val;
     });
@@ -285,7 +285,7 @@ function updateCoins() {
   document.getElementById("demo").innerHTML = newCoins;
   newJSON = '{"coinCoint": ' + newCoins + '}';
   // newCoins = JSON.stringify(coins);
-  $.post( "coins.json", newJSON);
+  $.post( "../coins.json", newJSON);
   // alert(newCoins + " and " + newJSON);
   coins = newCoins;
 }
