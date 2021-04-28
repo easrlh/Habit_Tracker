@@ -167,6 +167,11 @@ input {
   background-color: #bbb;
 }
 </style>
+<script>
+  $(document).ready(function() {
+    getCoins();
+  });
+</script>
 </head>
 <body>
   <div class="navigation_Bar">
@@ -187,6 +192,13 @@ input {
 <ul id="myUL" class="myUl">
 
 </ul>
+  
+<br>
+<div>
+  <p>Coin Count: </p>
+  <section id="demo"></div>
+</div>
+<br>
 
 <script type="text/javascript">
 
@@ -213,6 +225,7 @@ input {
   list.addEventListener('click', function(ev) {
     if (ev.target.tagName === 'li') {
       ev.target.classList.toggle('checked');
+      updateCoins();
     }
   }, false);
 
@@ -242,6 +255,38 @@ function newElement() {
       div.style.display = "none";
     }
   }
+}
+  
+// get coinCount from coins.json
+
+var coins;
+
+// get JSON and put value into coins variable
+// Reference 1 - https://api.jquery.com/jQuery.getJSON/
+// Reference 2 - http://web.simmons.edu/~menzin/CS321/Unit_5_jQuery_and_Ajax/About_jQuery/Chapter07/getJsonDemo.html
+function getCoins() {
+  $.getJSON("coins.json", function(ourJSON) {
+    $.each(ourJSON, function( key, val ) {
+      coins = val;
+    });
+    // put coinCount in demo area of habitTracker.html
+    $("#demo").append(coins);
+    // alert("Coins is working! Coins is currently: " + coins);
+  });
+};
+
+////////// update coins //////////
+
+// reference - https://api.jquery.com/jQuery.post/
+function updateCoins() {
+  var newCoins = coins + 1;
+  // alert(newCoins);
+  document.getElementById("demo").innerHTML = newCoins;
+  newJSON = '{"coinCoint": ' + newCoins + '}';
+  // newCoins = JSON.stringify(coins);
+  $.post( "coins.json", newJSON);
+  // alert(newCoins + " and " + newJSON);
+  coins = newCoins;
 }
 </script>
 
