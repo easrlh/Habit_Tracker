@@ -4,6 +4,7 @@ var coins;
 
 function badgeFive(){
 if (coins >= 5){
+decreaseCoins(5);
 badgeDog();
 }
 else{
@@ -14,6 +15,7 @@ alert("You don't have enough coins for this yet!")
 
 function badgeTen(){
 if (coins >= 10){
+decreaseCoins(10);
 badgeCat();
 }
 else{
@@ -23,6 +25,7 @@ alert("You don't have enough coins for this yet!")
 
 function badgeFifteen(){
 if (coins >= 15){
+decreaseCoins(15);
 badgeFrog();
 }
 else{
@@ -32,6 +35,7 @@ alert("You don't have enough coins for this yet!")
 
 function bgFive(){
 if (coins >= 5){
+decreaseCoins(5);
 changeBodyBg('lavender');
 }
 else{
@@ -41,6 +45,7 @@ alert("You don't have enough coins for this yet!")
 
 function bgTen(){
 if (coins >= 10){
+decreaseCoins(10);
 changeBodyBg('lemonchiffon');
 }
 else{
@@ -50,6 +55,7 @@ alert("You don't have enough coins for this yet!")
 
 function bgFifteen(){
 if (coins >= 15){
+decreaseCoins(15);
 changeBodyBg('darkseagreen');
 }
 else{
