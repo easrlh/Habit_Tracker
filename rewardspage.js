@@ -1,5 +1,6 @@
 // Function to change webpage background color
-var coins = "5";
+// var coins = "5";
+var coins;
 
 function badgeFive(){
 if (coins >= 5){
@@ -75,4 +76,33 @@ function badgeCat() {
 function badgeFrog() {
   document.getElementById("badges").innerHTML = "<img src='https://64.media.tumblr.com/52cbd3bd39e05a3077419f423246584c/046bbac4f325e662-41/s500x750/5c99414e17240faaf2669e945d9f52df7aad4688.png' />";
 }
+
+// run getCoins() once document has loaded
+$(document).ready(function() {
+  getCoins();
+});
+
+// get coinCount from coins.json
+function getCoins() {
+  $.getJSON("../coins.json", function(ourJSON) {
+    $.each(ourJSON, function( key, val ) {
+      coins = val;
+    });
+    // put coinCount in demo area of habitTracker.html
+    $("#demo").append(coins);
+    // alert("Coins is working! Coins is currently: " + coins);
+  });
+};
+
+// decrease coins
+function decreaseCoins(num) {
+  var newCoins = coins - num;
+  document.getElementById("demo").innerHTML = newCoins;
+  newJSON = '{"coinCoint": ' + newCoins + '}';
+  // newCoins = JSON.stringify(coins);
+  $.post( "../coins.json", newJSON);
+  // alert(newCoins + " and " + newJSON);
+  coins = newCoins;
+}
+
 
