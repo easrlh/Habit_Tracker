@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <title>Habit Tracker</title>
+  <!-- Written by Eva Lynch for CS 321 Final Project (April 2021)-->
+
+  <link rel="stylesheet" href="styles.css">
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+    // Habit constructor
+    function Habit(title, notes, checkin) {
+      this.title = title;
+      this.notes = notes;
+      this.checkin = checkin;
+    }
+
+    // Function to collect form data and create new Habit Object
+    /*function createHabit() {
+      var title = document.forms["addHabit"].elements[0].value;
+      var notes = document.forms["addHabit"].elements[1].value;
+      var checkin = document.forms["addHabit"].elements[2].value;
+
+      var habit = new Habit(
+        title, notes, checkin
+      );
+      console.log(habit);
+      habitList.push(habit);
+    }*/
+
+    function runEffect1() {
+      // Run the effect
+      $( "#effect1" ).toggle("slide");
+    };
+
+    function runEffect2() {
+      // Run the effect
+      $( "#effect2" ).toggle("slide");
+    };
+
+    $(document).ready(function() {
+      // add placeholder habit
+      //$('#habitUL').append(placeholderHabit.title);
+      // Set effect from select menu value
+      $( "#toggleAddButton" ).on( "click", function() {
+        runEffect1();})
+      $( "#toggleEditButton" ).on( "click", function() {
+        runEffect2();})
+
+      // run getJSON for coinCount
+      getCoins();
+      // run getJSON for habit titles
+      // getHabits(); not working quite yet
+    });
+
+  </script>
+</head>
+<body>
+  <ul>
+    <li><a href="http://web.simmons.edu/~lynche/cs321/BigProject/homepage/homepage.html">home</a></li>
+    <li><a class="active" href="http://web.simmons.edu/~lynche/cs321/BigProject/habitTracker/habitTracker.html">habit tracker</a></li>
+    <li><a href="http://web.simmons.edu/~lynche/cs321/BigProject/todo/Bp_Todo_list.html">to-do list</a></li>
+    <li><a href="http://web.simmons.edu/~lynche/cs321/BigProject/rewards/rewardspage.html">rewards</a></li>
+
+  </ul>
+
+  <h1>habit tracker</h1>
+
+  <div>
+    <p>Coin Count: </p>
+    <section id="demo"></div>
+  </div>
+  <br><br>
+
+  <div class="habitUL">
+    <ul id="habitUL">
+      <li>Walk Dog (Daily)</li><br>
+      <li>Check Mail (Weekly)</li><br>
+      <li>Run for 20 Minutes (Daily)</li><br>
+      <li>Journal for 15 Minutes (Daily)</li><br>
+      <li>Drink 9 Cups of Water (Daily)</li><br>
+      <li>Floss Teeth (Daily)</li><br>
+      <li>Affirmations (Daily)</li>
+    </ul>
+    <br>
+  </div>
+
+  <div>
+    <button type="button" name="button" onclick="updateCoins()">I completed a habit!</button>
+
+    <br>
+    <button id="toggleAddButton">Add Habit</button>
+    <br>
+    <button id="toggleEditButton">Edit Habit</button>
+    <br>
+  </div>
+
+  <br><br>
+
+  <section class="toggler">
+    <div id="effect1">
+      <h3>Add New Habit</h3>
+      <form id='addHabit' name='addHabit' onsubmit="createHabit()">
+            <!-- method = 'post'
+            onsubmit='newElement(this);'
+            action ="http://anita.simmons.edu/~lynche/sub_directory_of_your_public_html_with_php_scripts/file_with_script.php">
+
+             onsubmit calls an external function and passes whole form
+      	     form will be submitted only if validate_formName() returns value of true -->
+        <fieldset>
+          <label for="title">Title: </label>
+          <input type="text" name="title" id="title" size="25" />
+          <br><br>
+
+          <label for='notes'>Notes: </label>
+          <br>
+          <textarea name="notes" id="notes" rows="2" cols="25" ></textarea>
+          <br><br>
+
+          <!--<label>Controls: </label>
+          <input type="checkbox" name="posControl"  id="posControl" value="positive" /><label for ='posControl'>Positive</label>
+          <input type="checkbox" name="negControl"  id="negControl" value="negative" /><label for ='negControl'>Negative</label>
+          <input type="text" name="" value="">
+          <br><br>-->
+
+          <label for ='checkin'>Check-In Frequency: </label>
+          <br><br>
+          How often do you want to check-in on this habit? <br>
+          For example: If you click "Daily", our habit tracker will subtract 1 coin for every 24 hours you don't interact with the habit.
+          <br><br>
+          <input type="radio" name="checkin" id="checkDaily" value="1440" checked="true" />Daily (Every 24 Hours)
+          <input type="radio" name="checkin" id="checkWeekly" value="10080"/ >Weekly (Every 7 Days)
+          <!--<input type="radio" name="checkin" id="checkMonthly" VALUE="44640" />Monthly (Every 31 Days)-->
+          <br><br>
+
+          <!-- A reset button clears the form so users can sart again. -->
+          <input type='reset' value = "Clear Input">
+
+          <!-- A submit button will send the form, via get or post to the method specified in the fom tag -->
+          <input type="submit" value="Save Habit">
+          <input type="button" value="Show list" onclick="console.log(habitList)">
+
+          <!-- There is also a button which will, when clicked, execute code on the page.  See IT320  -->
+        </fieldset>
+      </form>
+    </div>
+  </section>
+
+  <section class="toggler">
+    <div id="effect2"><!-- class="ui-widget-content ui-corner-all"-->
+      <h3>Edit Habit</h3><!-- class="ui-widget-header ui-corner-all"-->
+      <form id='editHabit' name='editHabit'>
+            <!-- method = 'post'
+            onsubmit='return validate_formName(this);'
+            action ="http://anita.simmons.edu/~userName/sub_directory_of_your_public_html_with_php_scripts/file_with_script.php">
+
+             onsubmit calls an external function and passes whole form
+             form will be submitted only if validate_formName() returns value of true -->
+        <fieldset>
+          <label for ='habitList'>Select Habit: </label>
+          <br>
+          <select name='habitList' id='habitList'>
+            <option value='habitTitle1' selected='selected'>Habit Title 1</option>
+            <option value='info for choice 2 for useful procesing' >Text appearing on list for choice 2</option>
+            <option value='info for choice 3 for useful procesing' >Text appearing on list for choice 3</option>
+            <option value='info for choice 4 for useful procesing' >Text appearing on list for choice 4</option>
+          </select>
+          <br><br>
+
+          <label for='notes'>Notes: </label>
+          <br>
+          <textarea name="notes" id="notes" rows="2" cols="25" ></textarea>
+          <br><br>
+
+          <!--<label>Controls: </label>
+          <input type="checkbox" name="posControl"  id="posControl"  /><label for ='posControl'>Positive</label>
+          <input type="checkbox" name="negControl"  id="negControl"  /><label for ='negControl'>Negative</label>
+          <br><br>-->
+
+          <label for ='checkin'>Check-In Frequency: </label>
+          <br><br>
+          How often do you want to check-in on this habit? <br>
+          For example: If you click "Daily", our habit tracker will subtract 1 coin for every 24 hours you don't interact with the habit.
+          <br><br>
+          <input type="radio" name="checkin" id="checkDaily" VALUE="1440" checked="true" />Daily (Every 24 Hours)
+          <input type="radio" name="checkin" id="checkWeekly" VALUE="10080"/ >Weekly (Every 7 Days)
+          <!--<input type="radio" name="checkin" id="checkMonthly" VALUE="44640" />Monthly (Every 31 Days)-->
+          <br><br>
+
+          <!-- A reset button clears the form so users can sart again. -->
+          <input type='reset' value = "Clear Input">
+          <!-- A submit button will send the form, via get or post to the method specified in the fom tag -->
+          <input type="submit" value="Save Habit">
+        </fieldset>
+      </form>
+    </div>
+  </section>
+
+  <script type="text/javascript">
+
+    ////////// get coinCount from coins.json //////////
+
+    var coins;
+
+    // get JSON and put value into coins variable
+    // Reference 1 - https://api.jquery.com/jQuery.getJSON/
+    // Reference 2 - http://web.simmons.edu/~menzin/CS321/Unit_5_jQuery_and_Ajax/About_jQuery/Chapter07/getJsonDemo.html
+    function getCoins() {
+      $.getJSON("../coins.json", function(ourJSON) {
+        $.each(ourJSON, function( key, val ) {
+          coins = val;
+        });
+        // put coinCount in demo area of habitTracker.html
+        $("#demo").append(coins);
+        // alert("Coins is working! Coins is currently: " + coins);
+      });
+    };
+
+    ////////// update coins.json //////////
+
+    // reference - https://api.jquery.com/jQuery.post/
+    function updateCoins() {
+      var newCoins = coins + 1;
+      // alert(newCoins);
+      document.getElementById("demo").innerHTML = newCoins;
+      newJSON = '{"coinCoint": ' + newCoins + '}';
+      // newCoins = JSON.stringify(coins);
+      $.post( "../coins.json", newJSON);
+      // alert(newCoins + " and " + newJSON);
+      coins = newCoins;
+    }
+
+    //////////// get habit titles from habits.json ////////////
+
+    // create array
+    var habits = [];
+
+    function getHabits() {
+      // read in and store habit data from habits.json
+      $.getJSON("../habits.json", function(ourJSON) {
+        $.each(ourJSON, function( key, val ) {
+          elem = [key, val.notes, val.checkin];
+          habits.push(elem);
+          alert("getHabits() is working...probably!" + habits);
+        });
+      })
+      .done(getTitles());
+    };
+
+    function getTitles() {
+      // retreive titles from habits array
+      for (i=0; i<habits.length; i++) {
+        $("#habitUL").append("<li>" + habits[i][0] + "</li>");
+        alert("getTitles() is Working!");
+      // populates #habitUL with titles
+      }
+    };
+
+
+  </script>
+
+</body>
+</html>

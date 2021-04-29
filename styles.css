@@ -1,0 +1,163 @@
+.toggler {
+  width: 100%;
+  margin: auto;
+}
+
+#button {
+  padding: .5em 1em;
+  text-decoration: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#effect1 {
+  position: relative;
+  width: 100%;
+  padding: 0.4em;
+}
+
+#effect2 {
+  position: relative;
+  width: 100%;
+  padding: 0.4em;
+}
+
+h3 {
+  margin: 0;
+  padding: 0.4em;
+  text-align: center;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+}
+
+ul {
+  list-style-type: none;
+  font-family: "Courier New";
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #D3E2EF;
+}
+
+ul li  {
+  float: left;
+}
+
+ul li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul li a:hover:not(.active) {
+  background-color: lightgray;
+}
+
+.active {
+  background-color: #88A1B7;
+}
+
+h1,p {
+color: #6C694E;
+font-family: "Courier New";
+background-color: lavenderblush;
+text-align: center;
+border-radius: 25px;
+padding: 4px;
+width: 200px;
+margin-left: auto;
+margin-right: auto;
+}
+
+div {
+width: 300px;
+margin: auto;
+font-family: "Courier New";
+background-color: #D3E2EF;
+border-style: inset;
+text-align: center;
+font-family: "Courier New";
+}
+
+body {
+background-image: url("https://64.media.tumblr.com/c861081461b03822dcd32c4aa56f9eb2/tumblr_inline_mlkxorltbY1r53miq.png");
+}
+
+button {
+  font-family: "Courier New";
+  width: 300px;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar button {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: black;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar button:hover, .dropdown:hover .dropbtn {
+  background-color: #88A1B7;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content button {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content button:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+}
+
+div #badges {
+  background-color: none;
+}
